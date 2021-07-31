@@ -3,14 +3,28 @@ import './App.css';
 import Header from "./Header";
 import AddContact from './AddContact';
 import ContactList from "./ContactList";
+import { getDefaultNormalizer } from '@testing-library/react';
 
 
 function App() {
+
+  const contacts = [
+    {
+      id: "1", 
+      name : "Preet", 
+      email : "mksahota10@gmail.com", 
+    },
+    {
+      id: "2", 
+      name : "Sahota", 
+      email : "mksahota20@gmail.com"
+    }
+  ]
   return (
-    <div>
+    <div className="ui container">
       <Header />
       <AddContact />
-      {/* <ContactList /> */}
+      <ContactList contacts={contacts} />
     </div>
   );
 }
