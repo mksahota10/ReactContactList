@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Header from "./Header";
 import AddContact from './AddContact';
@@ -8,22 +8,16 @@ import { getDefaultNormalizer } from '@testing-library/react';
 
 function App() {
 
-  const contacts = [
-    {
-      id: "1", 
-      name : "Preet", 
-      email : "mksahota10@gmail.com", 
-    },
-    {
-      id: "2", 
-      name : "Sahota", 
-      email : "mksahota20@gmail.com"
-    }
-  ]
+const [contacts, setContacts] =useState([]); 
+
+  const addContactHandler = (contact) => {
+    console.log(contact)
+    setContacts([...contacts, contact])
+  }
   return (
     <div className="ui container">
       <Header />
-      <AddContact />
+      <AddContact addContactHanlder= {addContactHandler} />
       <ContactList contacts={contacts} />
     </div>
   );
